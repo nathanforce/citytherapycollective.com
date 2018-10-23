@@ -1,33 +1,32 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
+import { css } from 'glamor';
+import { theme } from '../theme';
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
+    {...css({ display: 'flex', alignItems: 'center', padding: '1rem 2rem' })}
   >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+    <h1 style={{ margin: 0 }}>
+      <Link
+        to="/"
+        {...css({
+          textDecoration: 'none',
+          fontWeight: 300,
+          textTransform: 'uppercase',
+          letterSpacing: '.05em',
+          fontSize: '1rem',
+          color: theme.colors.indigo(3),
+          transition: `color 200ms ease-in-out`,
+          '&:hover': {
+            color: theme.colors.indigo(6),
+          },
+        })}
+      >
+        City Therapy Collective
+      </Link>
+    </h1>
   </div>
-)
+);
 
-export default Header
+export default Header;

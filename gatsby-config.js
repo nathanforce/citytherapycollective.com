@@ -1,6 +1,9 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'City Therapy Collective',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -10,12 +13,17 @@ module.exports = {
         name: 'gatsby-starter-default',
         short_name: 'starter',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.GATSBY_CONTENTFUL_SPACE,
+        accessToken: process.env.GATSBY_CONTENTFUL_TOKEN,
+      },
+    },
+    `gatsby-plugin-glamor`,
   ],
-}
+};
