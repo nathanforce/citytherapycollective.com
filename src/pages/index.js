@@ -14,7 +14,7 @@ const IndexPage = props =>
           [theme.media.medium]: { flexDirection: 'row', alignItems: 'center' },
         })}
       >
-        <div
+        {/* <div
           {...css({
             marginRight: '2rem',
             marginBottom: '2rem',
@@ -27,7 +27,7 @@ const IndexPage = props =>
             {...css({ width: '100%', display: 'block' })}
             src="https://cdn.dribbble.com/users/283119/screenshots/4440167/attachments/1008518/pop.jpg"
           />
-        </div>
+        </div> */}
         <div>
           <h1
             {...css({
