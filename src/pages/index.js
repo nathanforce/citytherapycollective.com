@@ -1,63 +1,60 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import { theme } from '../theme';
 import { css } from 'glamor';
-import Layout from '../components/layout';
 
-const IndexPage = props =>
-  console.log({ props }) || (
-    <Layout>
+const IndexPage = props => (
+  <div
+    {...css({
+      transform: `scaleX(-1)`,
+      background: `url(${
+        props.data.contentfulHome.backgroundImage.file.url
+      }) no-repeat center center fixed`,
+      backgroundSize: 'cover',
+      minHeight: '100vh',
+    })}
+  >
+    <div
+      {...css({
+        transform: `scaleX(-1)`,
+      })}
+    >
       <div
         {...css({
-          display: 'flex',
-          flexDirection: 'column',
-          [theme.media.medium]: { flexDirection: 'row', alignItems: 'center' },
+          padding: '10rem 4rem',
+          maxWidth: 1200,
         })}
       >
-        {/* <div
+        <h1
           {...css({
-            marginRight: '2rem',
-            marginBottom: '2rem',
-            mixBlendMode: 'darken',
-            transform: 'scale(1.5)',
-            maxWidth: '30%',
+            fontSize: theme.fontSize.large,
+            [theme.media.medium]: {
+              fontSize: theme.fontSize.xlarge,
+            },
+            color: props.data.contentfulHome.headingTextColor,
+            lineHeight: 1,
+            margin: 0,
           })}
         >
-          <img
-            {...css({ width: '100%', display: 'block' })}
-            src="https://cdn.dribbble.com/users/283119/screenshots/4440167/attachments/1008518/pop.jpg"
-          />
-        </div> */}
-        <div>
-          <h1
-            {...css({
+          {props.data.contentfulHome.header}
+        </h1>
+        <p
+          {...css({
+            fontSize: theme.fontSize.medium,
+            [theme.media.medium]: {
               fontSize: theme.fontSize.large,
-              [theme.media.medium]: {
-                fontSize: theme.fontSize.xlarge,
-              },
-              color: theme.colors.indigo(1),
-              marginBottom: 0,
-            })}
-          >
-            {props.data.contentfulHome.header}
-          </h1>
-          <p
-            {...css({
-              fontSize: theme.fontSize.medium,
-              [theme.media.medium]: {
-                fontSize: theme.fontSize.large,
-              },
-              color: theme.colors.indigo(4),
-              maxWidth: '75%',
-              lineHeight: 1.5,
-            })}
-          >
-            {props.data.contentfulHome.body.content[0].content[0].value}
-          </p>
-        </div>
+            },
+            color: props.data.contentfulHome.bodyTextColor,
+            maxWidth: '75%',
+            lineHeight: 1.5,
+          })}
+        >
+          {props.data.contentfulHome.body.content[0].content[0].value}
+        </p>
       </div>
-    </Layout>
-  );
+    </div>
+  </div>
+);
 
 export default IndexPage;
 
@@ -65,6 +62,13 @@ export const query = graphql`
   query HomePageQuery {
     contentfulHome {
       header
+      bodyTextColor
+      headingTextColor
+      backgroundImage {
+        file {
+          url
+        }
+      }
       body {
         content {
           content {
