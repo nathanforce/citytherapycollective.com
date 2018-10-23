@@ -2,6 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { theme } from '../theme';
 import { css } from 'glamor';
+import 'sanitize.css';
+import '../global.css';
 
 const IndexPage = props => (
   <div
