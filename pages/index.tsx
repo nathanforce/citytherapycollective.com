@@ -2,6 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   const year = new Date().getFullYear();
@@ -12,10 +13,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="relative">
         <h1 className="sr-only">City Therapy Collective</h1>
-        <section className="h-screen p-6">
-          <div className={`${styles.intro} `}>
+        <section className="h-screen p-6 pt-0 flex flex-col">
+          <nav className="sticky top-0 flex items-center bg-white gap-8 px-6 py-8 text-lg text-brand-grey font-bold w-full z-40">
+            <Link href="/#about-us">Who we are</Link>
+            <Link href="/#our-values">Values</Link>
+            <Link href="/#services">Services</Link>
+            <Link href="/#join">Join</Link>
+          </nav>
+          <div className={`${styles.intro} flex-grow`}>
             <div className="text-brand-grey flex items-center h-full max-w-screen-xl m-auto">
               <div className="w-3/5 px-16 py-12">
                 <div className="space-y-2">
@@ -37,17 +44,18 @@ export default function Home() {
               </div>
               <div className="shadow-2xl " style={{ fontSize: 0 }}>
                 <Image
-                  src="/office.webp"
+                  src="/window.jpg"
                   alt="An inviting therapist office"
                   height="600"
                   width="600"
+                  className="object-cover"
                 />
               </div>
             </div>
           </div>
         </section>
 
-        <section className="h-screen p-6">
+        <section id="about-us" className="h-screen p-6">
           <div className="text-brand-grey h-full max-w-screen-xl m-auto flex py-40">
             <div className="w-3/5 px-16 py-12">
               <h2 className="text-brand-green font-sans text-sm font-extrabold uppercase tracking-wider">
@@ -67,7 +75,7 @@ export default function Home() {
             <div className="w-2/5"></div>
           </div>
         </section>
-        <section className="h-screen p-6">
+        <section id="our-values" className="h-screen p-6">
           <div className="text-brand-grey h-full max-w-screen-xl m-auto py-40">
             <div className="flex">
               <div className="px-16 py-12">
@@ -135,7 +143,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="h-min-screen p-6 bg-white">
+        <section id="services" className="h-min-screen p-6 bg-white">
           <div className="text-brand-grey h-full max-w-screen-xl m-auto py-40">
             <div className="w-3/5 px-16 py-12">
               <h2 className="text-brand-green font-sans text-sm font-extrabold uppercase tracking-wider">
@@ -174,7 +182,7 @@ export default function Home() {
               <div className="w-1/2 space-y-4">
                 <div>
                   <div className="text-xl font-sans font-extrabold">
-                    Kelly Stinks
+                    Racial Identity
                   </div>
                   <div className="">
                     Voluptate excepteur enim esse reprehenderit consectetur
@@ -191,7 +199,7 @@ export default function Home() {
 
                 <div>
                   <div className="text-xl font-sans font-extrabold">
-                    Kelly Stinks
+                    Relationship Issues
                   </div>
                   <div className="">
                     Quis non in elit labore sint. Aute duis proident ullamco ea
@@ -206,7 +214,7 @@ export default function Home() {
 
                 <div>
                   <div className="text-xl font-sans font-extrabold">
-                    Kelly Stinks
+                    Depression
                   </div>
                   <div className="">
                     Aute ad fugiat sit ipsum deserunt exercitation veniam
@@ -219,7 +227,7 @@ export default function Home() {
 
                 <div>
                   <div className="text-xl font-sans font-extrabold">
-                    Kelly Stinks
+                    Addiction
                   </div>
                   <div className="">
                     Sint anim adipisicing consectetur aliquip consequat
@@ -233,7 +241,7 @@ export default function Home() {
 
                 <div>
                   <div className="text-xl font-sans font-extrabold">
-                    Kelly Stinks
+                    Alcohol Use
                   </div>
                   <div className="">
                     Labore proident aliquip eu non nostrud qui velit excepteur.
@@ -246,7 +254,7 @@ export default function Home() {
 
                 <div>
                   <div className="text-xl font-sans font-extrabold">
-                    Kelly Stinks
+                    Anger Management
                   </div>
                   <div className="">
                     Veniam non incididunt culpa reprehenderit ex ipsum sint
@@ -263,7 +271,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="h-screen p-6">
+        <section id="join" className="h-screen p-6">
           <div className="text-brand-grey h-full max-w-screen-xl m-auto py-40">
             <h2 className="text-brand-green font-sans text-sm font-extrabold uppercase tracking-wider">
               Connect with us
