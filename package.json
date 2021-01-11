@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.0",
     "autoprefixer": "^10.2.1",
     "next": "10.0.5",
     "postcss": "^8.2.4",
@@ -16,6 +17,7 @@
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.2.1",
     "@types/node": "^14.14.20",
     "@types/react": "^17.0.0",
     "prettier": "^2.2.1",
